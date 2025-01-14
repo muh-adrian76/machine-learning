@@ -3,15 +3,14 @@
 - **Email:** wedoung87@gmail.com
 - **ID Dicoding:** m_adriano_krs_76
 
-## Domain Proyek
-Domain yang dipilih untuk proyek machine learning ini adalah *pertanian*, dengan judul **Prediksi Kualitas Pisang**  
+## Project Overview
+Topik yang dipilih untuk proyek machine learning ini adalah *rekomendasi buku*, dengan judul **Sistem Rekomendasi Manhwa (Komik Korea)**.
 
 ### Latar Belakang
 
 ![image](https://github.com/user-attachments/assets/1cbe0453-6ab7-48fc-9b43-9c8d2ba65b4d)
 
-Tanaman pisang merupakan salah satu tanaman herba yang terdiri dari akar, batang, daun, dan buah. Tanaman ini termasuk kedalam suku Musaceae, dapat tumbuh baik di dataran rendah maupun di dataran tinggi sehingga tanaman ini banyak ditanam oleh masyarakat sebagai bahan pangan. Pisang termasuk kedalam golongan buah klimakterik dan bersifat mudah rusak setelah dipanen <a href="https://doi.org/10.23960/jat.v11i2.6168" target="_blank">[1]</a>. 
-Tingkat kematangan buah pisang saat dipanen sangat mempengaruhi daya simpan dan kualitas buah. Waktu panen sangat penting untuk mendapatkan buah yang matang dan berkualitas <a href="https://jurnal.fp.unila.ac.id/index.php/JAT/article/view/7883" target="_blank">[2]</a>. Buah yang dipanen terlalu muda memiliki daya simpan yang rendah dan kualitas yang kurang baik ketika matang [1]. Umumnya usia panen terbaik dalam penanganan pasca panen untuk memperpanjang umur pisang antara 95 hari sampai dengan 110 hari setelah antesis (HSA) disesuaikan dengan varietasnya masing-masing, dan usia penyimpanan berkisar antara 10-11 hari <a href="http://ejournal.upnjatim.ac.id/index.php/teknologi-pangan/article/view/3903" target="_blank">[3]</a>.
+Komik adalah rangkaian gambar dan kata yang disusun dengan tujuan untuk menyampaikan informasi kepada orang yang membacanya. Selain dalam bentuk buku saat ini komik memiliki bentuk digital yang dapat dibaca melalui smartphone atau komputer. Komik memiliki beragam alur cerita dan genre, mulai dari aksi, petualangan dan lain-lain . Selain itu setiap negara memiliki komik dengan gaya yang berbeda. Banyaknya komik yang ada saat ini serta memiliki jenis, alur dan genre yang berbeda menjadi sebuah masalah bagi orang yang ingin membaca komik. Permasalahan ini dapat diselesaikan dengan membuat suatu sistem rekomendasi. <a href="https://ejournal.bsi.ac.id/ejurnal/index.php/ji/article/view/16113" target="_blank">[1]</a>.
 
 Masalah ini perlu diselesaikan karena kualitas dan daya simpan buah pisang yang buruk dapat menyebabkan kerugian bagi petani, pedagang, dan konsumen. Buah pisang yang dipanen pada tingkat kematangan yang tidak tepat berisiko cepat rusak, menurunkan nilai jual, dan meningkatkan limbah pangan. Oleh karena itu, diperlukan metode yang efektif untuk mengidentifikasi kualitas pisang secara akurat. Pendekatan berbasis machine learning dapat menjadi solusi untuk memprediksi kualitas pisang dengan menganalisis data sensorik, seperti parameter fisik dan kimiawi, sehingga membantu menentukan waktu panen yang optimal dan memperpanjang umur simpan buah.
 
@@ -277,6 +276,5 @@ Tabel 4 merupakan data hasil perbandingan akurasi dari setiap model yang diuji. 
 Model *KNN* yang dikembangkan telah menjawab seluruh *problem statements*, mencapai semua *goals*, dan memberikan solusi yang berdampak nyata bagi petani dan distributor. Dengan integrasi model ini ke dalam sistem atau aplikasi, diharapkan dapat meningkatkan kualitas produk, efisiensi operasional, dan nilai jual pisang di pasar.
 
 # 6. Referensi
-- [1] Widodo, S. E., Waluyo, S., Karyanto, A., Zulferiyeni, Z., Febrianingrum, N., Latansya, R., & Putri, M. D. (2023). APLIKASI THERMAL IMAGE PENDETEKSI TINGKAT KEMATANGAN BUAH PISANG DAN APOKAT. Jurnal Agrotek Tropika, 11(2), 165. <a href="https://doi.org/10.23960/jat.v11i2.6168" target="_blank">https://doi.org/10.29244/agrob.7.2.162-171</a>
+- [1] Kurniaji, Arba'i & Santi, Rina. (2023). Implementasi Metode Content Based Filtering Pada Pemilihan Komik. Jurnal Informatika. 10. 109-117. <a href="https://ejournal.bsi.ac.id/ejurnal/index.php/ji/article/view/16113" target="_blank">https://doi.org/10.31294/inf.v10i2.16113</a>.
 - [2] Irhamni, D., Hayati, R., & Hasanuddin, H. (2023). Pengaruh Tingkat Kematangan dan Lama Penyimpanan terhadap Kualitas Pisang Mas (Musa acuminata Colla). JURNAL AGROTROPIKA, 22(2), 145. <a href="https://jurnal.fp.unila.ac.id/index.php/JAT/article/view/7883" target="_blank">https://doi.org/10.23960/ja.v22i2.7883</a>
-- [3] Safitri, D. S., Arti, I. M., Miska, M. E. E., & Kalsum, U. (2023). KARAKTERISTIK BUAH PISANG MAS KIRANA PADA BERBAGAI UMUR PANEN DAN TEKNIK PENYIMPANAN. JURNAL TEKNOLOGI PANGAN, 17(2), 70–82. <a href="http://ejournal.upnjatim.ac.id/index.php/teknologi-pangan/article/view/3903" target="_blank">https://doi.org/10.33005/jtp.v17i2.3903</a>
