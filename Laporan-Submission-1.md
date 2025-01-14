@@ -51,7 +51,8 @@ Tujuan dari proyek ini adalah:
 | Baris | 8000 |
 | Kolom | 8 |
 
-## 2.1 Exploratory Data Analysis (EDA)
+*Tabel 1. Ringkasan Deskripsi Dataset*  
+
 | Size      | Weight    | Sweetness | Softness  | HarvestTime | Ripeness  | Acidity  | Quality |
 |-----------|-----------|-----------|-----------|-------------|-----------|----------|---------|
 | -1.924968 | 0.468078  | 3.077832  | -1.472177 | 0.294799    | 2.435570  | 0.271290 | Good    |
@@ -60,9 +61,9 @@ Tujuan dari proyek ini adalah:
 | -0.868524 | 1.566201  | 1.889605  | -1.273761 | -1.006278   | 1.873001  | 0.477862 | Good    |
 | 0.651825  | 1.319199  | -0.022459 | -1.209709 | -1.430692   | 1.078345  | 2.812442 | Good    |
 
-*Tabel 1. 5 Data Pertama dari Dataset Asli*  
+*Tabel 2. Lima Sampel Pertama dalam Dataset*  
 
-**Penjelasan Variabel**:
+*Keterangan*:
 - **Size** : Ukuran buah pisang.  
 - **Weight** : Berat buah pisang.  
 - **Sweetness** : Tingkat kemanisan buah pisang.  
@@ -71,55 +72,6 @@ Tujuan dari proyek ini adalah:
 - **Ripeness** : Tingkat kematangan buah pisang.  
 - **Acidity** : Tingkat keasaman buah pisang.  
 - **Quality** : Kategori kualitas buah pisang (`Good` atau `Bad`).  
-
-### 2.1.1 Univariate Analysis
-
-| Quality | Jumlah Sampel | Persentase (%) |
-|---------|---------------|----------------|
-| Good    | 4006          | 50.10          |
-| Bad     | 3994          | 49.90          |
-
-*Tabel 2. Analisis Univariat (Data Kategori)*
-
-![image](https://github.com/user-attachments/assets/4db48920-a16a-4604-95be-317778583392)
-
-*Gambar 1. Analisis Univariat (Data Numerik)*
-
-Berdasarkan Tabel 2, dapat dilihat bahwa distribusi data katagorik _Quality_ yang terdiri dari _Good_ dan _Bad_ kualitas pisang, yang mana nilai data **Bad** terdiri dari `3994` dan **good** terdiri dari `4006`, yang mana menunjukan perbandingan data yang tidak terlalu jauh dan cukup seimbang. Sedangkan distribusi data numerik pada Gambar 1 memiliki karakteristik terpusat, yaitu distribusi nilai dari semua fitur dominan di tengah (sekitar rata-rata) dengan sedikit outlier di kedua ujung
-
-### 2.1.2 Multivariate Analysis
-![image](https://github.com/user-attachments/assets/6cf860e9-7aa5-4a7a-a6e0-ba92a198f730)
-
-*Gambar 2. Analisis Matriks Korelasi (Data Numerik)*
-
-Gambar 2 merupakan matriks korelasi yang menunjukkan hubungan antar fitur numerik dalam nilai korelasi. Dari matriks korelasi, dapat diketahui bahwa:
-- Fitur *HarvestTime* memiliki korelasi positif yang cukup kuat dengan *Size*. Artinya, lama waktu panen dapat mempengaruhi ukuran buah pisang. Semakin lama buah tidak dipanen, ukurannya akan semakin besar.
-- Fitur *Weight* juga memiliki korelasi positif yang cukup kuat dengan *Acidity* dan *Sweetness*. Artinya, berat pisang dapat mempengaruhi tingkat rasa manis dan asam. Semakin berat buah pisang, maka akan semakin manis dan asam.
-- Fitur *Ripeness* memiliki korelasi negatif dengan *Acidity* dan memiliki korelasi positif dengan *Sweetness*. Artinya, saat pisang mencapai kematangan yang optimal, rasa asamnya cenderung berkurang, dan rasa manisnya menjadi lebih dominan.
-
-
-![image](https://github.com/user-attachments/assets/aaae8328-e515-437d-b7cc-bfff445b693e)
-![image](https://github.com/user-attachments/assets/029145f0-c323-4ed2-8046-4ec2c5c2853e)
-
-*Gambar 3. Analisis Multivariat (Data Kategorik)*
-
-Gambar 3 merupakan grafik distribusi *Quality* berdasarkan *HarvestTime* dan *Ripeness*. Karena *HarvestTime* dan *Ripeness* adalah variabel numerik dan Quality bersifat kategorik, untuk itu digunakan boxplot untuk melihat distribusi datanya. Dari kedua grafik boxplot, dapat disimpulkan bahwa:
-- Pisang berkualitas baik memiliki waktu panen yang lebih cepat dan stabil dibandingkan dengan pisang berkualitas buruk, yang memiliki waktu panen yang lebih lama dan bervariasi. Hal ini menunjukkan bahwa waktu panen berpengaruh terhadap kualitas pisang, dimana **pisang berkualitas baik umumnya dapat dipanen lebih awal**.
-- Adanya nilai outlier pada kategori "Bad" mengindikasikan bahwa ada beberapa panen yang secara signifikan lebih lama, mungkin disebabkan oleh faktor-faktor eksternal seperti cuaca atau metode panen yang kurang efektif.
-- Pisang berkualitas baik (Good) memiliki tingkat kematangan yang lebih tinggi dan variasi yang lebih besar dibandingkan dengan pisang berkualitas buruk (Bad). Hal ini menunjukkan bahwa tingkat kematangan pisang berpengaruh terhadap kualitas pisang, di mana **pisang berkualitas baik umumnya lebih matang**.
-- Adanya nilai outlier pada kategori "Good" mengindikasikan bahwa pisang berkualitas baik cenderung memiliki tingkat kematangan yang sangat tinggi.
-
-# 3. Data Preparation
-Pada tahap ini dilakukan proses _Data Gathering_, _Data Assessing_, dan _Data Cleaning_. 
-
-## 3.1 Data Gathering
-Pada proses Data Gathering, data diimpor sedemikian rupa agar bisa dibaca dengan baik menggunakan dataframe Pandas. Dataset yang dipakai memiliki 8000 sampel dengan 8 fitur, dimana 7 fitur bertipe numerik (`float64`) dan 1 fitur bertipe objek (`Quality`) yang dapat dilihat menggunakan atribut `shape` dan fungsi `info()`.  
-
-## 3.2 Data Assessing
-Untuk proses Data Assessing, berikut adalah beberapa pengecekan yang dilakukan:
-- Duplicate data (data yang serupa dengan data lainnya), menggunakan fungsi `duplicated()`.
-- Missing value (data atau informasi yang "hilang" atau tidak tersedia), menggunakan fungsi `isnull()`.
-- Outlier (data yang menyimpang dari rata-rata sekumpulan data yang ada), menggunakan grafik boxplot.
 
 | **Fitur**     | **Jumlah Missing Value** |
 |---------------|--------------------------|
@@ -138,7 +90,62 @@ Untuk proses Data Assessing, berikut adalah beberapa pengecekan yang dilakukan:
 
 ![image](https://github.com/user-attachments/assets/6261c042-72cd-44e1-b369-c938579b5df9)
 
-*Gambar 4. Visualisasi Nilai Outlier pada Fitur Numerik*
+*Gambar 1. Visualisasi Nilai Outlier pada Fitur Numerik*
+
+Berikut adalah kondisi data dalam dataset yang akan digunakan:
+- Tidak ada data atau sampel yang terduplikat.
+- Pada *Tabel 3* terlihat bahwa tidak terdapat *missing value* pada dataset.
+- Pada *Gambar 1* terlihat bahwa terdapat nilai *outlier* pada fitur *Size, Weight, Sweetness, Softness, HarvestTime, Ripeness, dan Acidity*.
+
+## 2.1 Exploratory Data Analysis (EDA)
+### 2.1.1 Univariate Analysis
+
+| Quality | Jumlah Sampel | Persentase (%) |
+|---------|---------------|----------------|
+| Good    | 4006          | 50.10          |
+| Bad     | 3994          | 49.90          |
+
+*Tabel 4. Analisis Univariat (Data Kategori)*
+
+![image](https://github.com/user-attachments/assets/4db48920-a16a-4604-95be-317778583392)
+
+*Gambar 2. Analisis Univariat (Data Numerik)*
+
+Berdasarkan Tabel 4, dapat dilihat bahwa distribusi data katagorik _Quality_ yang terdiri dari _Good_ dan _Bad_ kualitas pisang, yang mana nilai data **Bad** terdiri dari `3994` dan **good** terdiri dari `4006`, yang mana menunjukan perbandingan data yang tidak terlalu jauh dan cukup seimbang. Sedangkan distribusi data numerik pada Gambar 2 memiliki karakteristik terpusat, yaitu distribusi nilai dari semua fitur dominan di tengah (sekitar rata-rata) dengan sedikit outlier di kedua ujung
+
+### 2.1.2 Multivariate Analysis
+![image](https://github.com/user-attachments/assets/6cf860e9-7aa5-4a7a-a6e0-ba92a198f730)
+
+*Gambar 3. Analisis Matriks Korelasi (Data Numerik)*
+
+Gambar 3 merupakan matriks korelasi yang menunjukkan hubungan antar fitur numerik dalam nilai korelasi. Dari matriks korelasi, dapat diketahui bahwa:
+- Fitur *HarvestTime* memiliki korelasi positif yang cukup kuat dengan *Size*. Artinya, lama waktu panen dapat mempengaruhi ukuran buah pisang. Semakin lama buah tidak dipanen, ukurannya akan semakin besar.
+- Fitur *Weight* juga memiliki korelasi positif yang cukup kuat dengan *Acidity* dan *Sweetness*. Artinya, berat pisang dapat mempengaruhi tingkat rasa manis dan asam. Semakin berat buah pisang, maka akan semakin manis dan asam.
+- Fitur *Ripeness* memiliki korelasi negatif dengan *Acidity* dan memiliki korelasi positif dengan *Sweetness*. Artinya, saat pisang mencapai kematangan yang optimal, rasa asamnya cenderung berkurang, dan rasa manisnya menjadi lebih dominan.
+
+
+![image](https://github.com/user-attachments/assets/aaae8328-e515-437d-b7cc-bfff445b693e)
+![image](https://github.com/user-attachments/assets/029145f0-c323-4ed2-8046-4ec2c5c2853e)
+
+*Gambar 4. Analisis Multivariat (Data Kategorik)*
+
+Gambar 4 merupakan grafik distribusi *Quality* berdasarkan *HarvestTime* dan *Ripeness*. Karena *HarvestTime* dan *Ripeness* adalah variabel numerik dan Quality bersifat kategorik, untuk itu digunakan boxplot untuk melihat distribusi datanya. Dari kedua grafik boxplot, dapat disimpulkan bahwa:
+- Pisang berkualitas baik memiliki waktu panen yang lebih cepat dan stabil dibandingkan dengan pisang berkualitas buruk, yang memiliki waktu panen yang lebih lama dan bervariasi. Hal ini menunjukkan bahwa waktu panen berpengaruh terhadap kualitas pisang, dimana **pisang berkualitas baik umumnya dapat dipanen lebih awal**.
+- Adanya nilai outlier pada kategori "Bad" mengindikasikan bahwa ada beberapa panen yang secara signifikan lebih lama, mungkin disebabkan oleh faktor-faktor eksternal seperti cuaca atau metode panen yang kurang efektif.
+- Pisang berkualitas baik (Good) memiliki tingkat kematangan yang lebih tinggi dan variasi yang lebih besar dibandingkan dengan pisang berkualitas buruk (Bad). Hal ini menunjukkan bahwa tingkat kematangan pisang berpengaruh terhadap kualitas pisang, di mana **pisang berkualitas baik umumnya lebih matang**.
+- Adanya nilai outlier pada kategori "Good" mengindikasikan bahwa pisang berkualitas baik cenderung memiliki tingkat kematangan yang sangat tinggi.
+
+# 3. Data Preparation
+Pada tahap ini dilakukan proses _Data Gathering_, _Data Assessing_, dan _Data Cleaning_. 
+
+## 3.1 Data Gathering
+Pada proses Data Gathering, data diimpor sedemikian rupa agar bisa dibaca dengan baik menggunakan dataframe Pandas. Dataset yang dipakai memiliki 8000 sampel dengan 8 fitur, dimana 7 fitur bertipe numerik (`float64`) dan 1 fitur bertipe objek (`Quality`) yang dapat dilihat menggunakan atribut `shape` dan fungsi `info()`.  
+
+## 3.2 Data Assessing
+Untuk proses Data Assessing, berikut adalah beberapa pengecekan yang dilakukan:
+- Duplicate data (data yang serupa dengan data lainnya), menggunakan fungsi `duplicated()`.
+- Missing value (data atau informasi yang "hilang" atau tidak tersedia), menggunakan fungsi `isnull()`.
+- Outlier (data yang menyimpang dari rata-rata sekumpulan data yang ada), menggunakan grafik boxplot.
 
 Pada proyek kasus ini tidak ditemukannya data duplikat dan *missing value*. Namun ditemukan nilai *outlier* pada fitur atau variabel numerik. Adapun untuk menghilangkan *outlier* dilakukan dengan menggunakan metode IQR. IQR dihitung dengan mengurangkan kuartil ketiga (Q3) dari kuartil pertama (Q1) sebagaimana rumus berikut.
 
@@ -148,7 +155,7 @@ $$IQR = Q_3 - Q_1$$
 - Q1 adalah kuartil pertama 
 - Q3 adalah kuartil ketiga.
 
-Setelah menggunakan metode IQR untuk menghilangkan *outlier* pada dataset, jumlah dataset berkurang menjadi `7645` yang awalnya adalah `8000`.
+Setelah menggunakan metode IQR untuk menghilangkan *outlier* pada dataset, jumlah sampel berkurang menjadi `7645` yang awalnya adalah `8000`.
 
 ## 3.3 Data Cleaning
 Pada proses _Data Cleaning_ yang dilakukan adalah:
@@ -232,13 +239,13 @@ Berikut hasil `Accuracy` dari ketiga buah model yang dilatih:
 | RandomForest  | 0.97 | 0.11 |
 | SVM | 0.98 | 0.06 |
 
-*Tabel 4. Hasil Accuracy dan Waktu Prediksi*
+*Tabel 5. Hasil Accuracy dan Waktu Prediksi*
 
 ![image](https://github.com/user-attachments/assets/7c1dd26d-45d5-4ae5-a2d4-65b2ffdd82de)
 
 *Gambar 5. Visualisasi Perbandingan Akurasi dan Waktu Prediksi*
 
-Tabel 4 merupakan data hasil perbandingan akurasi dari setiap model yang diuji. Dapat diketahui bahwa model dengan algoritma *KNN* dan *SVM* sama-sama memiliki Accuracy tertinggi, yaitu `98%`. Untuk itu, pemilihan model terbaik ditentukan oleh lama waktu prediksi. Oleh karena itu, model KNN yang akan dipilih untuk digunakan.
+Tabel 5 merupakan data hasil perbandingan akurasi dari setiap model yang diuji. Dapat diketahui bahwa model dengan algoritma *KNN* dan *SVM* sama-sama memiliki Accuracy tertinggi, yaitu `98%`. Untuk itu, pemilihan model terbaik ditentukan oleh lama waktu prediksi. Oleh karena itu, model KNN yang akan dipilih untuk digunakan.
 
 ### **Keterkaitan dengan Problem Statements**
 
